@@ -1,0 +1,39 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="1" time="59.616406000000005">
+<testsuite name="registration-form.spec.js" timestamp="2026-09-29T18:28:01.162Z" hostname="chromium" tests="1" failures="0" skipped="0" time="55.857" errors="1">
+<testcase name="requires the mandatory details before continuing registration" classname="registration-form.spec.js" time="55.857">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\registration-form-requires-98dfd-ore-continuing-registration-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\registration-form-requires-98dfd-ore-continuing-registration-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded." type="Error">
+<![CDATA[  [chromium] › registration-form.spec.js:3:1 › requires the mandatory details before continuing registration 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "https://afpiwb.in/registration-form", waiting until "load"
+
+
+      2 |
+      3 | test('requires the mandatory details before continuing registration', async ({ page }) => {
+    > 4 |   await page.goto('https://afpiwb.in/registration-form');
+        |              ^
+      5 |
+      6 |   // Fill in the mandatory details
+      7 |  await page.getByLabel('Are you a member of AFPI? *', { exact: true }).selectOption('No');
+        at D:\PlaywithAcademy\tests\registration-form.spec.js:4:14
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\registration-form-requires-98dfd-ore-continuing-registration-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\registration-form-requires-98dfd-ore-continuing-registration-chromium\error-context.md
+]]>
+</error>
+</testcase>
+</testsuite>
+</testsuites>
