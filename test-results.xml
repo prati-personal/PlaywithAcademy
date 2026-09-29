@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="1" time="59.616406000000005">
-<testsuite name="registration-form.spec.js" timestamp="2026-09-29T18:28:01.162Z" hostname="chromium" tests="1" failures="0" skipped="0" time="55.857" errors="1">
-<testcase name="requires the mandatory details before continuing registration" classname="registration-form.spec.js" time="55.857">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="1" time="54.618704">
+<testsuite name="registration-form.spec.js" timestamp="2026-09-29T18:30:53.582Z" hostname="chromium" tests="1" failures="0" skipped="0" time="51.356" errors="1">
+<testcase name="requires the mandatory details before continuing registration" classname="registration-form.spec.js" time="51.356">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|test-results\registration-form-requires-98dfd-ore-continuing-registration-chromium\video.webm]]
@@ -13,19 +13,21 @@
 
     Test timeout of 30000ms exceeded.
 
-    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Error: locator.selectOption: Error: strict mode violation: locator('[name="submitting_abstract"]') resolved to 2 elements:
+        1) <input value="Yes" required="" type="radio" name="submitting_abstract"/> aka getByRole('radio', { name: 'Yes' })
+        2) <input value="No" required="" type="radio" name="submitting_abstract"/> aka getByRole('radio', { name: 'No', exact: true })
+
     Call log:
-      - navigating to "https://afpiwb.in/registration-form", waiting until "load"
+      - waiting for locator('[name="submitting_abstract"]')
 
 
-      2 |
-      3 | test('requires the mandatory details before continuing registration', async ({ page }) => {
-    > 4 |   await page.goto('https://afpiwb.in/registration-form');
-        |              ^
-      5 |
-      6 |   // Fill in the mandatory details
-      7 |  await page.getByLabel('Are you a member of AFPI? *', { exact: true }).selectOption('No');
-        at D:\PlaywithAcademy\tests\registration-form.spec.js:4:14
+      29 | // Proceed to the next step and fill in the registration and payment details
+      30 | await page.getByLabel('Non-veg').click();
+    > 31 | await page.locator('[name="submitting_abstract"]').selectOption('No');
+         |                                                    ^
+      32 | await page.getByRole('button', { name: 'Submit Registration' }).click();
+      33 | });
+        at D:\PlaywithAcademy\tests\registration-form.spec.js:31:52
 
     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
     ..\test-results\registration-form-requires-98dfd-ore-continuing-registration-chromium\video.webm
