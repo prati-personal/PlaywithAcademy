@@ -24,17 +24,13 @@ await page.locator('#qualifications:visible').fill('MBBS');
 await page.getByRole('textbox', { name: 'Designation / Affiliation *' }).fill('Cardiology'); 
 await page.locator('#state_district:visible').fill('West Bengal - Kolkata'); 
 await page.locator('button').filter({ hasText: 'Next: AFPI Membership →' }).click();
-
 //Proceed to the next step and fill in the AFPI membership details
-
 await page.getByRole('textbox', { name: 'Medical Council Registration No.' }).fill('20251231');
 await page.locator("input[value='Yes'][name='want_membership']").click();
 //await page.locator('[name="want_membership"]').selectOption('Yes');
 await page.locator('button').filter({ hasText: 'Next: Registration & Payment →' }).click();
-
 // Proceed to the next step and fill in the registration and payment details
 await page.getByLabel('Non-veg').click();
 await page.locator("input[value='No'][name='submitting_abstract']").click();
-
 //await page.getByRole('button', { name: 'Submit Registration' }).click();*
 });
