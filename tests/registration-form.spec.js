@@ -34,7 +34,7 @@ await page.locator('button').filter({ hasText: 'Next: Registration & Payment →
 
 // Proceed to the next step and fill in the registration and payment details
 await page.getByLabel('Non-veg').click();
-await page.getByLabel('Are you submitting an abstract? *', { exact: true }).selectOption('No');
-//await page.locator('[name="submitting_abstract"]').selectOption('No');
+await page.locator("input[value='No'][name='submitting_abstract']").click();
+
 //await page.getByRole('button', { name: 'Submit Registration' }).click();*
 });
