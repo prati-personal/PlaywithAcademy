@@ -1,5 +1,11 @@
 const { test, expect } = require('@playwright/test');
 
+test.use({
+  launchOptions: {
+    args: ['--start-maximized'],
+  },
+});
+
 test('requires the mandatory details before continuing registration', async ({ page }) => {
   await page.goto('https://afpiwb.in/registration-form');
 
@@ -19,7 +25,7 @@ await page.getByRole('textbox', { name: 'Designation / Affiliation *' }).fill('C
 await page.locator('#state_district:visible').fill('West Bengal - Kolkata'); 
 await page.locator('button').filter({ hasText: 'Next: AFPI Membership →' }).click();
 
-/*Proceed to the next step and fill in the AFPI membership details
+//Proceed to the next step and fill in the AFPI membership details
 
 await page.getByRole('textbox', { name: 'Medical Council Registration No.' }).fill('20251231');
 await page.locator("input[value='Yes'][name='want_membership']").click();
@@ -28,6 +34,7 @@ await page.locator('button').filter({ hasText: 'Next: Registration & Payment →
 
 // Proceed to the next step and fill in the registration and payment details
 await page.getByLabel('Non-veg').click();
-await page.locator('[name="submitting_abstract"]').selectOption('No');
-await page.getByRole('button', { name: 'Submit Registration' }).click();*/
+await page.getByLabel('Are you submitting an abstract? *', { exact: true }).selectOption('No');
+//await page.locator('[name="submitting_abstract"]').selectOption('No');
+//await page.getByRole('button', { name: 'Submit Registration' }).click();*
 });
