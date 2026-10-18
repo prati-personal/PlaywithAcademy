@@ -10,8 +10,8 @@ test('requires the mandatory details before continuing registration', async ({ p
   await page.goto('https://afpiwb.in/registration-form');
 
   // Fill in the mandatory details
- await page.getByLabel('Are you a member of AFPI? *', { exact: true }).selectOption('No');
- await expect(page.locator('span').filter({ hasText: 'Registering under For Non-Members' })).toBeVisible();
+ await page.getByLabel('Are you a member of AFPI? *', { exact: true }).selectOption('Yes');
+ await expect(page.locator('span').filter({ hasText: 'Registering under For Members' })).toBeVisible();
 await page.locator('#name').fill('John Doe');
 await page.locator('#email').fill('test@gmail.com');
 await page.locator('#mobile_number').fill('1234567890');
